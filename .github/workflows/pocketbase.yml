@@ -1,10 +1,16 @@
-steps:
-  # need checkout before using compose-action
-  - uses: actions/checkout@v3
-  - uses: isbang/compose-action@v1.4.0
-    with:
-      compose-file: '../docker-compose.yml'
-      down-flags: '--volumes'
-      services: pocketbase
-  - name: Run PocketBase Backend
-    run: docker-compose up -d
+name: Dev Deploy on Merge
+'on':
+  push:
+    branches:
+      - dev
+jobs:
+  build_and_run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: isbang/compose-action@v1.4.0
+        with:
+          compose-file: '../docker-compose.yml'
+          down-flags: '--volumes'
+          services: pocketbase
+      - run: docker-compose up -d
