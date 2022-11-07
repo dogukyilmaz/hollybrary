@@ -13,4 +13,4 @@ jobs:
           compose-file: './docker-compose.yml'
           down-flags: '--volumes'
           services: pocketbase
-      - run: docker-compose up -d
+      - run: >- docker-compose up -d --build && docker-compose logs
