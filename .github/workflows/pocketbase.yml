@@ -2,7 +2,7 @@ name: Dev Deploy on Merge
 'on':
   push:
     branches:
-      - dev
+      - main
 jobs:
   build_and_run:
     runs-on: ubuntu-latest
