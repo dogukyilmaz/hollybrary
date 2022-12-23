@@ -2,15 +2,18 @@ version: '3.7'
 services:
   pocketbase:
     image: ghcr.io/muchobien/pocketbase:latest
-    container_name: pocketbase
+    # container_name: hollybrary-pocketbase
     restart: unless-stopped
-    command:
-      - --encryptionEnv #optional
-      - ENCRYPTION #optional
-    environment:
-      ENCRYPTION: example #optional
     ports:
       - '8090:8090'
     volumes:
       - /var/lib/docker-volumes/data:/pb_data
       - /var/lib/docker-volumes/public:/pb_public #optional
+  proxy:
+    build:
+      context: ./api/proxy
+    # command: npm start
+    ports:
+      - '4500:4500'
+    environment:
+      NODE_ENV: dev
