@@ -68,7 +68,7 @@ class _SearchResultsState extends State<SearchResults> {
     super.dispose();
   }
 
-  var buttons = ['Movies', 'Tv', 'Person'];
+  var buttons = ['Movies', 'Series', 'Cast'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: BlocBuilder<SearchResultsCubit, SearchResultsState>(
@@ -340,7 +340,7 @@ class _SearchResultsState extends State<SearchResults> {
                                     width: .6,
                                   ),
                                   color: currentPage == buttons.indexOf(button)
-                                      ? Colors.cyanAccent
+                                      ? Colors.purpleAccent.shade200
                                       : Colors.transparent,
                                   borderRadius: BorderRadius.circular(5),
                                 ),

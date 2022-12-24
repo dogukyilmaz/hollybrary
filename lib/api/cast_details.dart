@@ -9,7 +9,7 @@ import 'package:hollybrary/models/serie_model.dart';
 
 class FetchCastInfoById {
   Future<List<dynamic>> getCastDetails(String id) async {
-    CastPersonalInfo prinfo;
+    CastModel prinfo;
     SocialMediaInfo socialMedia;
     ImageBackdropList backdrops;
     MovieModelList movies;
@@ -18,7 +18,7 @@ class FetchCastInfoById {
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
-      prinfo = CastPersonalInfo.fromJson(data['data']);
+      prinfo = CastModel.fromJson(data['data']);
       socialMedia = SocialMediaInfo.fromJson(data['socialmedia']);
       backdrops = ImageBackdropList.fromJson(data['images']['profiles']);
 

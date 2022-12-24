@@ -197,7 +197,7 @@ class HorizontalMovieCard extends StatelessWidget {
                       children: [
                         IconTheme(
                           data: const IconThemeData(
-                            color: Colors.cyanAccent,
+                            color: Colors.purpleAccent,
                             size: 20,
                           ),
                           child: StarDisplay(

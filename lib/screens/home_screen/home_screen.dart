@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: CircularProgressIndicator(
                   color: Colors.grey.shade700,
                   strokeWidth: 2,
-                  backgroundColor: Colors.cyanAccent,
+                  backgroundColor: Colors.purpleAccent.shade200,
                 ),
               ),
             );

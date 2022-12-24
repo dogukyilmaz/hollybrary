@@ -61,7 +61,7 @@ class SeasonDetailScreenState extends State<SeasonDetailScreen> {
                 child: CircularProgressIndicator(
                   color: Colors.grey.shade700,
                   strokeWidth: 2,
-                  backgroundColor: Colors.cyanAccent,
+                  backgroundColor: Colors.purpleAccent.shade200,
                 ),
               ),
             );
@@ -453,7 +453,8 @@ class SeasonInfoWidget extends StatelessWidget {
                                                   color:
                                                       textColor == Colors.white
                                                           ? Colors.amber
-                                                          : Colors.cyanAccent,
+                                                          : Colors.purpleAccent
+                                                              .shade200,
                                                   size: 20,
                                                 ),
                                                 child: StarDisplay(

@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 import '../utils/formated_time_genrator.dart';
 
-class CastPersonalInfo {
+class CastModel {
   final String image;
   final String name;
   final String bio;
@@ -13,7 +13,7 @@ class CastPersonalInfo {
   final String imdbId;
   final String old;
   final String gender;
-  CastPersonalInfo({
+  CastModel({
     required this.image,
     required this.name,
     required this.bio,
@@ -25,7 +25,7 @@ class CastPersonalInfo {
     required this.old,
     required this.gender,
   });
-  factory CastPersonalInfo.fromJson(json) {
+  factory CastModel.fromJson(json) {
     getyears(String birthDateString) {
       String datePattern = "yyyy-MM-dd";
 
@@ -42,7 +42,7 @@ class CastPersonalInfo {
           "${monthgenrater(json['birthday'].split("-")[1])} ${json['birthday'].split("-")[2]}, ${json['birthday'].split("-")[0]}";
       // ignore: empty_catches
     } catch (e) {}
-    return CastPersonalInfo(
+    return CastModel(
       bio: json['biography'] ?? '',
       birthday: string,
       id: json['id'].toString(),

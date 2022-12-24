@@ -16,7 +16,7 @@ class GetSerieDetail {
     var images = [];
     CastInfoList castInfoList;
     SerieModelList similarshows;
-    var box = Hive.box('Tv');
+    var box = Hive.box('Series');
     dynamic tv;
     var res = await http.get(Uri.parse('$BASE_URL/tv/$id'));
 

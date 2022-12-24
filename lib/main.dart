@@ -11,7 +11,7 @@ void main() async {
   await Hive.initFlutter(dir.path);
   await Hive.openBox('Movies');
   await Hive.openBox('Favorites');
-  await Hive.openBox('Tv');
+  await Hive.openBox('Series');
   runApp(const MyApp());
 }
 
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // scaffoldBackgroundColor: const Color(0xFF0C0303),
         primarySwatch: Colors.blue,
         splashColor: Colors.transparent,
-        primaryColor: Colors.cyanAccent,
+        primaryColor: Colors.purpleAccent.shade200,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       builder: (context, child) {

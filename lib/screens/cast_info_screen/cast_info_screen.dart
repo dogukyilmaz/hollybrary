@@ -55,7 +55,7 @@ class _CastInFoScreenState extends State<CastInFoScreen> {
                 child: CircularProgressIndicator(
                   color: Colors.grey.shade700,
                   strokeWidth: 2,
-                  backgroundColor: Colors.cyanAccent,
+                  backgroundColor: Colors.purpleAccent.shade200,
                 ),
               ),
             );
@@ -68,7 +68,7 @@ class _CastInFoScreenState extends State<CastInFoScreen> {
 }
 
 class CastScreenWidget extends StatelessWidget {
-  final CastPersonalInfo info;
+  final CastModel info;
   final String backgroundImage;
   final List<SerieModel> tv;
   final SocialMediaInfo sinfo;

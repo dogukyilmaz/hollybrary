@@ -23,14 +23,12 @@ class SearchPage extends StatelessWidget {
           shrinkWrap: true,
           physics: const BouncingScrollPhysics(),
           children: [
-            const SizedBox(
-              height: 50,
-            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
                 "Search",
-                style: heading.copyWith(color: Colors.cyanAccent, fontSize: 36),
+                style: heading.copyWith(
+                    color: Colors.purpleAccent.shade200, fontSize: 36),
               ),
             ),
             const SizedBox(height: 10),
@@ -42,9 +40,9 @@ class SearchPage extends StatelessWidget {
                 decoration: InputDecoration(
                   suffixIcon: Icon(
                     Icons.search,
-                    color: Theme.of(context).primaryColor,
+                    color: AppColors.accentColor,
                   ),
-                  hintText: "Search movies,tv shows or cast...",
+                  hintText: "Search for movies, series or cast...",
                   filled: true,
                   contentPadding: const EdgeInsets.symmetric(
                     vertical: 0,
@@ -120,7 +118,7 @@ class SearchPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
               child: Text(
-                "Browes all",
+                "All Genres",
                 style: heading.copyWith(
                   color: Colors.white,
                   fontSize: 16,

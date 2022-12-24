@@ -10,7 +10,7 @@ abstract class CastinfoState extends Equatable {
 class CastinfoInitial extends CastinfoState {}
 
 class CastinfoLoaded extends CastinfoState {
-  final CastPersonalInfo info;
+  final CastModel info;
   final SocialMediaInfo socialInfo;
   final List<SerieModel> tvShows;
   final List<ImageBackdrop> images;

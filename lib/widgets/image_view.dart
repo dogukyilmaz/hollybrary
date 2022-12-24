@@ -151,7 +151,7 @@ class _ViewPhotosState extends State<ViewPhotos> {
         itemCount: widget.imageList.length,
         loadingBuilder: (context, progress) => Center(
           child: CircularProgressIndicator(
-            color: Colors.cyanAccent,
+            color: Colors.purpleAccent.shade200,
             strokeWidth: 2,
             backgroundColor: Colors.grey.shade800,
             value: progress == null

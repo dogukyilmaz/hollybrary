@@ -55,7 +55,7 @@ class _GenreResultsState extends State<GenreResults> {
     super.dispose();
   }
 
-  var buttons = ['Movies', 'Tv'];
+  var buttons = ['Movies', 'Series'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: BlocBuilder<GenreResultsCubit, GenreResultsState>(
@@ -227,7 +227,7 @@ class _GenreResultsState extends State<GenreResults> {
                                     width: .6,
                                   ),
                                   color: currentPage == buttons.indexOf(button)
-                                      ? Colors.cyanAccent
+                                      ? Colors.purpleAccent.shade200
                                       : Colors.transparent,
                                   borderRadius: BorderRadius.circular(5),
                                 ),
