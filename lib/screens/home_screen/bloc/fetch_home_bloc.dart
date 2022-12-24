@@ -19,12 +19,12 @@ class FetchHomeBloc extends Bloc<FetchHomeEvent, FetchHomeState> {
         try {
           final data = await repo.getHomePageMovies();
           emit(FetchHomeLoaded(
-            topShows: data[4],
-            tranding: data[0],
+            topSeries: data[4],
+            trending: data[0],
             tvShows: data[5],
             upcoming: data[3],
-            nowPlaying: data[1],
-            topRated: data[2],
+            popular: data[1],
+            topMovies: data[2],
           ));
         } on ErrorDataModel catch (e) {
           emit(FetchHomeError(error: e));

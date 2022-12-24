@@ -8,19 +8,19 @@ class FetchHomeInitial extends FetchHomeState {}
 class FetchHomeLoading extends FetchHomeState {}
 
 class FetchHomeLoaded extends FetchHomeState {
-  final List<MovieModel> tranding;
-  final List<MovieModel> topRated;
+  final List<MovieModel> trending;
+  final List<MovieModel> topMovies;
   final List<SerieModel> tvShows;
-  final List<SerieModel> topShows;
+  final List<SerieModel> topSeries;
   final List<MovieModel> upcoming;
-  final List<MovieModel> nowPlaying;
+  final List<MovieModel> popular;
   FetchHomeLoaded({
-    required this.tranding,
-    required this.topRated,
+    required this.trending,
+    required this.topMovies,
     required this.tvShows,
-    required this.topShows,
+    required this.topSeries,
     required this.upcoming,
-    required this.nowPlaying,
+    required this.popular,
   });
 }
 

@@ -25,11 +25,11 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, state) {
           if (state is FetchHomeLoaded) {
             return HomeScreenWidget(
-              topRated: state.topRated,
-              topShows: state.topShows,
-              nowPlaying: state.nowPlaying,
-              tvShows: state.topShows,
-              tranding: state.tranding,
+              topMovies: state.topMovies,
+              topSeries: state.topSeries,
+              popular: state.popular,
+              tvShows: state.topSeries,
+              trending: state.trending,
               upcoming: state.upcoming,
             );
           } else if (state is FetchHomeError) {
@@ -53,20 +53,20 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class HomeScreenWidget extends StatelessWidget {
-  final List<MovieModel> tranding;
-  final List<MovieModel> topRated;
+  final List<MovieModel> trending;
+  final List<MovieModel> topMovies;
   final List<SerieModel> tvShows;
-  final List<SerieModel> topShows;
+  final List<SerieModel> topSeries;
   final List<MovieModel> upcoming;
-  final List<MovieModel> nowPlaying;
+  final List<MovieModel> popular;
   const HomeScreenWidget({
     Key? key,
-    required this.tranding,
-    required this.topRated,
+    required this.trending,
+    required this.topMovies,
     required this.tvShows,
-    required this.topShows,
+    required this.topSeries,
     required this.upcoming,
-    required this.nowPlaying,
+    required this.popular,
   }) : super(key: key);
 
   @override
@@ -79,10 +79,10 @@ class HomeScreenWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MoviesPage(movies: tranding),
+            MoviesPage(movies: trending),
             const HeaderText(text: "Popular"),
             HorizontalListViewMovies(
-              list: nowPlaying,
+              list: popular,
             ),
             const HeaderText(text: "Upcoming"),
             HorizontalListViewMovies(
@@ -94,7 +94,7 @@ class HomeScreenWidget extends StatelessWidget {
             DelayedDisplay(
               delay: const Duration(microseconds: 800),
               child: HorizontalListViewMovies(
-                list: tranding,
+                list: trending,
               ),
             ),
             const HeaderText(text: "Series"),
@@ -103,11 +103,11 @@ class HomeScreenWidget extends StatelessWidget {
             ),
             const HeaderText(text: "Top Movies"),
             HorizontalListViewMovies(
-              list: topRated,
+              list: topMovies,
             ),
             const HeaderText(text: "Top Series"),
             HorizontalListViewTv(
-              list: topShows,
+              list: topSeries,
             ),
           ],
         ),
