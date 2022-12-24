@@ -25,8 +25,8 @@ class SearchDataRepo {
   }
 
   Future<List<dynamic>> getSeries(String query, int page) async {
-    var res = await http.get(
-        Uri.parse('$BASE_URL/search/tv?text=$query&page=${page.toString()}'));
+    var res = await http.get(Uri.parse(
+        '$BASE_URL/search/serie?text=$query&page=${page.toString()}'));
     if (res.statusCode == 200) {
       return [
         (jsonDecode(res.body)['data'] as List)
@@ -40,8 +40,8 @@ class SearchDataRepo {
   }
 
   Future<List<dynamic>> getCast(String query, int page) async {
-    var res = await http.get(Uri.parse(
-        '$BASE_URL/search/person?text=$query&page=${page.toString()}'));
+    var res = await http.get(
+        Uri.parse('$BASE_URL/search/cast?text=$query&page=${page.toString()}'));
     if (res.statusCode == 200) {
       return [
         (jsonDecode(res.body)['data'] as List)

@@ -14,7 +14,7 @@ class GetSeasonDetail {
     TrailerList trailerList;
     ImageBackdropList backdropList;
 
-    var res = await http.get(Uri.parse('$BASE_URL/tv/$id/season/$snum'));
+    var res = await http.get(Uri.parse('$BASE_URL/serie/$id/season/$snum'));
 
     if (res.statusCode == 200) {
       seasonInfo = SeasonModel.fromJson(jsonDecode(res.body)['data']);

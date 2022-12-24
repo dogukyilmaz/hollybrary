@@ -18,7 +18,7 @@ class GetSerieDetail {
     SerieModelList similarSeries;
     var box = Hive.box('Series');
     dynamic tv;
-    var res = await http.get(Uri.parse('$BASE_URL/tv/$id'));
+    var res = await http.get(Uri.parse('$BASE_URL/serie/$id'));
 
     if (res.statusCode == 200) {
       tv = jsonDecode(res.body);

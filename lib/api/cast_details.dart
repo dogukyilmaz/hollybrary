@@ -14,7 +14,7 @@ class GetCastById {
     ImageBackdropList backdrops;
     MovieModelList movies;
     SerieModelList tv;
-    var response = await http.get(Uri.parse('$BASE_URL/person/$id'));
+    var response = await http.get(Uri.parse('$BASE_URL/cast/$id'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);

@@ -69,27 +69,7 @@ router.post('/create-list', async (req, res, next) => {
   console.log(pb.authStore.token);
   // console.log(pb.authStore.model.id);
   // try {
-  //   const [trendingMovies, nowPlayingMovies, upcomingMovies, topRatedMovies, trendingSeries, topRatedSeries] = await Promise.all([
-  //     axios.get(`${process.env.TMDB_BASE_URL}/trending/movie/day?api_key=${process.env.TMBD_API_KEY}`),
-  //     axios.get(`${process.env.TMDB_BASE_URL}/movie/now_playing?api_key=${process.env.TMBD_API_KEY}`),
-  //     axios.get(`${process.env.TMDB_BASE_URL}/movie/upcoming?api_key=${process.env.TMBD_API_KEY}`),
-  //     axios.get(`${process.env.TMDB_BASE_URL}/movie/top_rated?api_key=${process.env.TMBD_API_KEY}&page=1)}`),
-  //     axios.get(`${process.env.TMDB_BASE_URL}/trending/tv/day?api_key=${process.env.TMBD_API_KEY}`),
-  //     axios.get(`${process.env.TMDB_BASE_URL}/tv/top_rated?api_key=${process.env.TMBD_API_KEY}&page=1`),
-  //   ]);
 
-  //   res.status(200).json({
-  //     success: true,
-  //     message: 'Ok',
-  //     data: {
-  //       trendingMovies: trendingMovies?.data?.results || [],
-  //       nowPlayingMovies: nowPlayingMovies?.data?.results || [],
-  //       upcomingMovies: upcomingMovies?.data?.results || [],
-  //       topRatedMovies: topRatedMovies?.data?.results || [],
-  //       trendingSeries: trendingSeries?.data?.results || [],
-  //       topRatedSeries: topRatedSeries?.data?.results || [],
-  //     },
-  //   });
   // } catch (error) {
   //   console.log(error, 'error');
   //   next(error);
