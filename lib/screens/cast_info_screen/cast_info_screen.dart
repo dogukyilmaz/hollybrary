@@ -28,7 +28,7 @@ class CastInFoScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CastInFoScreenState createState() => _CastInFoScreenState();
+_CastInFoScreenState createState() => _CastInFoScreenState();
 }
 
 class _CastInFoScreenState extends State<CastInFoScreen> {
