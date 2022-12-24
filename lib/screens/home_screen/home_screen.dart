@@ -4,7 +4,7 @@ import 'bloc/fetch_home_bloc.dart';
 
 import 'package:hollybrary/utils/app_animation.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 import 'package:hollybrary/widgets/header_text.dart';
 import 'package:hollybrary/widgets/horizontal_list_cards.dart';
 import 'package:hollybrary/widgets/movie_home.dart';
@@ -55,8 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
 class HomeScreenWidget extends StatelessWidget {
   final List<MovieModel> tranding;
   final List<MovieModel> topRated;
-  final List<TvModel> tvShows;
-  final List<TvModel> topShows;
+  final List<SerieModel> tvShows;
+  final List<SerieModel> topShows;
   final List<MovieModel> upcoming;
   final List<MovieModel> nowPlaying;
   const HomeScreenWidget({

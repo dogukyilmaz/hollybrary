@@ -12,7 +12,7 @@ import 'package:hollybrary/utils/app_colors.dart';
 import 'package:hollybrary/widgets/fav_btn/fav_btn.dart';
 import 'package:hollybrary/widgets/image_view.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 import 'package:hollybrary/widgets/cast_list.dart';
 import 'package:hollybrary/widgets/draggable_sheet.dart';
 import 'package:hollybrary/widgets/expandable_group.dart';
@@ -76,12 +76,12 @@ class _TvShowDetailScreenState extends State<TvShowDetailScreen> {
 }
 
 class TvInfoScrollableWidget extends StatelessWidget {
-  final TvInfoModel info;
+  final SerieDetailModel info;
   final List<ImageBackdrop> backdrops;
   final List<TrailerModel> trailers;
   final List<CastInfo> castList;
   final String backdrop;
-  final List<TvModel> similar;
+  final List<SerieModel> similar;
   const TvInfoScrollableWidget({
     Key? key,
     required this.info,
@@ -281,12 +281,10 @@ class TvInfoScrollableWidget extends StatelessWidget {
                                           style: normalText.copyWith(
                                               color: Colors.white),
                                           children: [
-                                            ...info.genres
-                                                .map(
-                                                  (genre) => TextSpan(
-                                                      text: "$genre, "),
-                                                )
-                                                .toList()
+                                            ...info.GenreModel.map(
+                                              (genre) =>
+                                                  TextSpan(text: "$genre, "),
+                                            ).toList()
                                           ],
                                         ),
                                       ),
@@ -305,12 +303,12 @@ class TvInfoScrollableWidget extends StatelessWidget {
                                               size: 20,
                                             ),
                                             child: StarDisplay(
-                                              value: ((info.rateing * 5) / 10)
+                                              value: ((info.rating * 5) / 10)
                                                   .round(),
                                             ),
                                           ),
                                           Text(
-                                            "  ${info.rateing.toString()} /10",
+                                            "  ${info.rating.toString()} /10",
                                             style: normalText.copyWith(
                                               color:
                                                   Colors.white == Colors.white
@@ -328,7 +326,7 @@ class TvInfoScrollableWidget extends StatelessWidget {
                                       child: FavButton(
                                         id: info.tmdbId,
                                         title: info.title,
-                                        rate: info.rateing,
+                                        rate: info.rating,
                                         poster: info.poster,
                                         type: 'TV',
                                         date: info.date,
@@ -407,7 +405,7 @@ class AboutShowWidget extends StatelessWidget {
   }) : super(key: key);
 
   final Color textColor;
-  final TvInfoModel info;
+  final SerieDetailModel info;
 
   @override
   Widget build(BuildContext context) {
@@ -527,7 +525,7 @@ class SeasonsWidget extends StatelessWidget {
     required this.textColor,
   }) : super(key: key);
 
-  final TvInfoModel info;
+  final SerieDetailModel info;
   final Seasons season;
   final Color textColor;
 
@@ -633,7 +631,7 @@ class OverviewWidget extends StatelessWidget {
   }) : super(key: key);
 
   final Color textColor;
-  final TvInfoModel info;
+  final SerieDetailModel info;
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
-class FetchDataError {
+class ErrorDataModel {
   final String message;
 
-  FetchDataError(this.message);
+  ErrorDataModel(this.message);
 }

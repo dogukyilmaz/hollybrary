@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:hollybrary/api/fetch_cast_details.dart';
-import 'package:hollybrary/models/cast_info_model.dart';
+import 'package:hollybrary/api/cast_details.dart';
+import 'package:hollybrary/models/cast_model.dart';
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 
 part 'castinfo_event.dart';
 part 'castinfo_state.dart';
@@ -27,10 +27,10 @@ class CastinfoBloc extends Bloc<CastinfoEvent, CastinfoState> {
             images: data[2],
             tvShows: data[4],
           ));
-        } on FetchDataError catch (e) {
+        } on ErrorDataModel catch (e) {
           emit(CastinfoError(error: e));
         } catch (e) {
-          emit(CastinfoError(error: FetchDataError(e.toString())));
+          emit(CastinfoError(error: ErrorDataModel(e.toString())));
         }
       }
     });

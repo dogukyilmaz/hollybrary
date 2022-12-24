@@ -1,7 +1,7 @@
-import 'formated_time_genrator.dart';
+import '../utils/formated_time_genrator.dart';
 import 'movie_model.dart';
 
-class EpisodeModel {
+class SeasonEpisodeModel {
   final String id;
   final String name;
   final String overview;
@@ -13,7 +13,7 @@ class EpisodeModel {
   final String customDate;
   final List<CastInfo> castInfoList;
 
-  EpisodeModel({
+  SeasonEpisodeModel({
     required this.id,
     required this.name,
     required this.overview,
@@ -26,7 +26,7 @@ class EpisodeModel {
     required this.castInfoList,
   });
 
-  factory EpisodeModel.fromJson(json) {
+  factory SeasonEpisodeModel.fromJson(json) {
     var string = "Not Available";
     getString() {
       try {
@@ -37,14 +37,14 @@ class EpisodeModel {
     }
 
     getString();
-    return EpisodeModel(
+    return SeasonEpisodeModel(
       id: json['id'].toString(),
       name: json['name'] ?? '',
       overview: json['overview'] ?? '',
       seasonNumber: json['season_number'].toString(),
       stillPath: json['still_path'] != null
           ? "https://image.tmdb.org/t/p/w500" + json['still_path']
-          : "https://images.pexels.com/photos/4089658/pexels-photo-4089658.jpeg?cs=srgb&dl=pexels-victoria-borodinova-4089658.jpg&fm=jpg",
+          : "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       voteAverage: json['vote_average'].toDouble() ?? 0.0,
       date: json['air_date'],
       number: json['episode_number'].toString(),
@@ -63,7 +63,7 @@ class SeasonModel {
   final String posterPath;
   final String seasonNumber;
   final String customDate;
-  final List<EpisodeModel> episodes;
+  final List<SeasonEpisodeModel> episodes;
   SeasonModel({
     required this.name,
     required this.overview,
@@ -91,10 +91,10 @@ class SeasonModel {
       id: json['id'].toString(),
       posterPath: json['poster_path'] != null
           ? "https://image.tmdb.org/t/p/w500" + json['poster_path']
-          : "https://images.pexels.com/photos/4089658/pexels-photo-4089658.jpeg?cs=srgb&dl=pexels-victoria-borodinova-4089658.jpg&fm=jpg",
+          : "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       seasonNumber: json['season_number'].toString(),
       episodes: ((json['episodes'] ?? []) as List)
-          .map((episode) => EpisodeModel.fromJson(episode))
+          .map((episode) => SeasonEpisodeModel.fromJson(episode))
           .toList(),
       customDate: string,
     );

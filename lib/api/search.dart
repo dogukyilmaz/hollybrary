@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
 import 'package:hollybrary/models/people_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 
 class SearchResultsRepo {
   Future<List<dynamic>> getmovies(String query, int page) async {
@@ -20,7 +20,7 @@ class SearchResultsRepo {
         jsonDecode(res.body)['total_pages'],
       ];
     } else {
-      throw FetchDataError("Something went wrong!");
+      throw ErrorDataModel("Something went wrong!");
     }
   }
 
@@ -30,12 +30,12 @@ class SearchResultsRepo {
     if (res.statusCode == 200) {
       return [
         (jsonDecode(res.body)['data'] as List)
-            .map((list) => TvModel.fromJson(list))
+            .map((list) => SerieModel.fromJson(list))
             .toList(),
         jsonDecode(res.body)['total_pages'],
       ];
     } else {
-      throw FetchDataError("Something went wrong!");
+      throw ErrorDataModel("Something went wrong!");
     }
   }
 
@@ -45,12 +45,12 @@ class SearchResultsRepo {
     if (res.statusCode == 200) {
       return [
         (jsonDecode(res.body)['data'] as List)
-            .map((list) => PeopleModel.fromJson(list))
+            .map((list) => PerformerModel.fromJson(list))
             .toList(),
         jsonDecode(res.body)['total_pages'],
       ];
     } else {
-      throw FetchDataError("Something went wrong!");
+      throw ErrorDataModel("Something went wrong!");
     }
   }
 }

@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hollybrary/api/fetch_home_screen_data.dart';
+import 'package:hollybrary/api/home_data.dart';
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 
 part 'fetch_home_event.dart';
 part 'fetch_home_state.dart';
@@ -26,10 +26,10 @@ class FetchHomeBloc extends Bloc<FetchHomeEvent, FetchHomeState> {
             nowPlaying: data[1],
             topRated: data[2],
           ));
-        } on FetchDataError catch (e) {
+        } on ErrorDataModel catch (e) {
           emit(FetchHomeError(error: e));
         } catch (e) {
-          emit(FetchHomeError(error: FetchDataError('something went wrong')));
+          emit(FetchHomeError(error: ErrorDataModel('something went wrong')));
         }
       }
     });

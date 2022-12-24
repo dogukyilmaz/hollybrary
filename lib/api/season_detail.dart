@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/season_details_model.dart';
+import 'package:hollybrary/models/season_model.dart';
 
 class FetchSeasonInfo {
   Future<List<dynamic>> getSeasonDetail(String id, String snum) async {
@@ -29,7 +29,7 @@ class FetchSeasonInfo {
         backdropList.backdrops,
       ];
     } else {
-      throw FetchDataError('Something Went wrong!');
+      throw ErrorDataModel('Something Went wrong!');
     }
   }
 }

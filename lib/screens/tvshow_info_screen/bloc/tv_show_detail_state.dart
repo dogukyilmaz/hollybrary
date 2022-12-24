@@ -10,8 +10,8 @@ abstract class TvShowDetailState extends Equatable {
 class TvShowDetailInitial extends TvShowDetailState {}
 
 class TvShowDetailLoaded extends TvShowDetailState {
-  final TvInfoModel tmdbData;
-  final List<TvModel> similar;
+  final SerieDetailModel tmdbData;
+  final List<SerieModel> similar;
   final List<CastInfo> cast;
   final List<ImageBackdrop> backdrops;
   final List<TrailerModel> trailers;
@@ -28,7 +28,7 @@ class TvShowDetailLoaded extends TvShowDetailState {
 class TvShowDetailLoading extends TvShowDetailState {}
 
 class TvShowDetailError extends TvShowDetailState {
-  final FetchDataError error;
+  final ErrorDataModel error;
   const TvShowDetailError({
     required this.error,
   });

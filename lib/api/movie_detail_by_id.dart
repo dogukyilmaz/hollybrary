@@ -20,7 +20,7 @@ class FetchMovieDataById {
     if (response.statusCode == 200) {
       movie = jsonDecode(response.body);
     } else {
-      throw FetchDataError('Something went wrong');
+      throw ErrorDataModel('Something went wrong');
     }
 
     movieData = MovieInfoModel.fromJson(movie['data']);
@@ -34,13 +34,13 @@ class FetchMovieDataById {
     castData = CastInfoList.fromJson(movie['credits']);
     similarData = MovieModelList.fromJson(movie['similar']['results']);
 
-    var imdbId = movieData.imdbid;
+    var imdbId = movieData.imdbId;
     final omdbResponse =
         await http.get(Uri.parse('$BASE_URL/movie/omdb/' + imdbId.toString()));
     if (omdbResponse.statusCode == 200) {
       omdbData = MovieInfoImdb.fromJson(jsonDecode(omdbResponse.body)['data']);
     } else {
-      throw FetchDataError('Error Fetching data');
+      throw ErrorDataModel('Error Fetching data');
     }
     return [
       movieData,

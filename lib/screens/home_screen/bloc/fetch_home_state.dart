@@ -10,8 +10,8 @@ class FetchHomeLoading extends FetchHomeState {}
 class FetchHomeLoaded extends FetchHomeState {
   final List<MovieModel> tranding;
   final List<MovieModel> topRated;
-  final List<TvModel> tvShows;
-  final List<TvModel> topShows;
+  final List<SerieModel> tvShows;
+  final List<SerieModel> topShows;
   final List<MovieModel> upcoming;
   final List<MovieModel> nowPlaying;
   FetchHomeLoaded({
@@ -25,7 +25,7 @@ class FetchHomeLoaded extends FetchHomeState {
 }
 
 class FetchHomeError extends FetchHomeState {
-  final FetchDataError error;
+  final ErrorDataModel error;
   FetchHomeError({
     required this.error,
   });

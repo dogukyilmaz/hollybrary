@@ -12,7 +12,7 @@ class CastinfoInitial extends CastinfoState {}
 class CastinfoLoaded extends CastinfoState {
   final CastPersonalInfo info;
   final SocialMediaInfo socialInfo;
-  final List<TvModel> tvShows;
+  final List<SerieModel> tvShows;
   final List<ImageBackdrop> images;
   final List<MovieModel> movies;
   const CastinfoLoaded({
@@ -27,7 +27,7 @@ class CastinfoLoaded extends CastinfoState {
 class CastinfoLoading extends CastinfoState {}
 
 class CastinfoError extends CastinfoState {
-  final FetchDataError error;
+  final ErrorDataModel error;
   const CastinfoError({
     required this.error,
   });

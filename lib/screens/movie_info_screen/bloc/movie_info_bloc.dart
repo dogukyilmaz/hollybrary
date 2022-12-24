@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:hollybrary/api/fetch_movie_data_by_id.dart';
+import 'package:hollybrary/api/movie_detail_by_id.dart';
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
 
@@ -25,10 +25,10 @@ class MovieInfoBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
             cast: info[3],
             similar: info[5],
           ));
-        } on FetchDataError catch (e) {
+        } on ErrorDataModel catch (e) {
           emit(MovieInfoError(error: e));
         } catch (e) {
-          emit(MovieInfoError(error: FetchDataError(e.toString())));
+          emit(MovieInfoError(error: ErrorDataModel(e.toString())));
         }
       }
     });

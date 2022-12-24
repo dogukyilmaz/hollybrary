@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 
 class GenreResultsRepo {
   Future<List<dynamic>> getmovies(String query, int page) async {
@@ -19,7 +19,7 @@ class GenreResultsRepo {
         jsonDecode(res.body)['total_pages'],
       ];
     } else {
-      throw FetchDataError("Something went wrong!");
+      throw ErrorDataModel("Something went wrong!");
     }
   }
 
@@ -29,12 +29,12 @@ class GenreResultsRepo {
     if (res.statusCode == 200) {
       return [
         (jsonDecode(res.body)['data'] as List)
-            .map((list) => TvModel.fromJson(list))
+            .map((list) => SerieModel.fromJson(list))
             .toList(),
         jsonDecode(res.body)['total_pages'],
       ];
     } else {
-      throw FetchDataError("Something went wrong!");
+      throw ErrorDataModel("Something went wrong!");
     }
   }
 }

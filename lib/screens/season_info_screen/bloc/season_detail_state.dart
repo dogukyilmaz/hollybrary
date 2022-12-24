@@ -27,7 +27,7 @@ class SeasonDetailLoaded extends SeasonDetailState {
 class SeasonDetailLoading extends SeasonDetailState {}
 
 class SeasonDetailError extends SeasonDetailState {
-  final FetchDataError error;
+  final ErrorDataModel error;
   const SeasonDetailError({
     required this.error,
   });

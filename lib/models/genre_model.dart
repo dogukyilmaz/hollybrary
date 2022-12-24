@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class Genres {
+class GenreModel {
   final String id;
   final String name;
   final String image;
   final Color color;
-  Genres({
+  GenreModel({
     required this.color,
     required this.image,
     required this.id,
     required this.name,
   });
-  factory Genres.fromJson(json) {
-    return Genres(
+  factory GenreModel.fromJson(json) {
+    return GenreModel(
       id: json['id'].toString(),
       name: json['name'],
       image: json['image'].toString(),
@@ -21,18 +21,19 @@ class Genres {
   }
 }
 
-class GenresList {
-  final List<Genres> list;
-  GenresList({
+class GenreModelList {
+  final List<GenreModel> list;
+  GenreModelList({
     required this.list,
   });
-  factory GenresList.fromJson(json) {
-    return GenresList(
-        list: (json as List).map((genre) => Genres.fromJson(genre)).toList());
+  factory GenreModelList.fromJson(json) {
+    return GenreModelList(
+        list:
+            (json as List).map((genre) => GenreModel.fromJson(genre)).toList());
   }
 }
 
-final genreslist = [
+final genreDataList = [
   {
     "id": 28,
     "name": "Action",
@@ -159,34 +160,4 @@ final genreslist = [
         "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uHA5COgDzcxjpYSHHulrKVl6ByL.jpg",
     "color": const Color(0xffb49208)
   },
-
-  // {
-  //   "id": 10762,
-  //   "name": "Kids",
-  // },
-
-  // {
-  //   "id": 10763,
-  //   "name": "News",
-  // },
-  // {
-  //   "id": 10764,
-  //   "name": "Reality",
-  // },
-  // {
-  //   "id": 10765,
-  //   "name": "Sci-Fi & Fantasy",
-  // },
-  // {
-  //   "id": 10766,
-  //   "name": "Soap",
-  // },
-  // {
-  //   "id": 10767,
-  //   "name": "Talk",
-  // },
-  // {
-  //   "id": 10768,
-  //   "name": "War & Politics",
-  // },
 ];

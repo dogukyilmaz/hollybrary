@@ -10,7 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:hollybrary/utils/app_colors.dart';
 import 'package:hollybrary/utils/app_animation.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/season_details_model.dart';
+import 'package:hollybrary/models/season_model.dart';
 import 'package:hollybrary/widgets/cast_list.dart';
 import 'package:hollybrary/widgets/draggable_sheet.dart';
 import 'package:hollybrary/widgets/no_results_found.dart';
@@ -496,7 +496,7 @@ class SeasonInfoWidget extends StatelessWidget {
 }
 
 class EpisodeInfo extends StatelessWidget {
-  final EpisodeModel model;
+  final SeasonEpisodeModel model;
   final String color;
 
   final Color textColor;

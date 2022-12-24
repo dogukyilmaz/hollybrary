@@ -9,9 +9,9 @@ import 'package:hollybrary/utils/app_colors.dart';
 import 'package:hollybrary/utils/app_animation.dart';
 import 'package:readmore/readmore.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:hollybrary/models/cast_info_model.dart';
+import 'package:hollybrary/models/cast_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 import 'package:hollybrary/widgets/draggable_sheet.dart';
 import 'package:hollybrary/widgets/horizontal_list_cards.dart';
 import 'package:hollybrary/widgets/image_view.dart';
@@ -28,7 +28,7 @@ class CastInFoScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-_CastInFoScreenState createState() => _CastInFoScreenState();
+  _CastInFoScreenState createState() => _CastInFoScreenState();
 }
 
 class _CastInFoScreenState extends State<CastInFoScreen> {
@@ -70,7 +70,7 @@ class _CastInFoScreenState extends State<CastInFoScreen> {
 class CastScreenWidget extends StatelessWidget {
   final CastPersonalInfo info;
   final String backgroundImage;
-  final List<TvModel> tv;
+  final List<SerieModel> tv;
   final SocialMediaInfo sinfo;
   final List<MovieModel> movies;
   final List<ImageBackdrop> images;

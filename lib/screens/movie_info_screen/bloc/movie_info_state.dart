@@ -30,7 +30,7 @@ class MovieInfoLoaded extends MovieInfoState {
 }
 
 class MovieInfoError extends MovieInfoState {
-  final FetchDataError error;
+  final ErrorDataModel error;
 
   const MovieInfoError({
     required this.error,

@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:hollybrary/api/fetch_season_info.dart';
+import 'package:hollybrary/api/season_detail.dart';
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/season_details_model.dart';
+import 'package:hollybrary/models/season_model.dart';
 
 part 'season_detail_event.dart';
 part 'season_detail_state.dart';
@@ -25,11 +25,11 @@ class SeasonDetailBloc extends Bloc<SeasonDetailEvent, SeasonDetailState> {
             trailers: data[2],
             backdrops: data[3],
           ));
-        } on FetchDataError catch (e) {
+        } on ErrorDataModel catch (e) {
           emit(SeasonDetailError(error: e));
         } catch (e) {
           emit(SeasonDetailError(
-              error: FetchDataError("Something wents wrong!")));
+              error: ErrorDataModel("Something wents wrong!")));
         }
       }
     });

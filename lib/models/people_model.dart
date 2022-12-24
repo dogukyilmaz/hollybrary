@@ -1,14 +1,14 @@
-class PeopleModel {
+class PerformerModel {
   final String profile;
   final String name;
   final String id;
-  PeopleModel({
+  PerformerModel({
     required this.profile,
     required this.name,
     required this.id,
   });
-  factory PeopleModel.fromJson(json) {
-    return PeopleModel(
+  factory PerformerModel.fromJson(json) {
+    return PerformerModel(
       name: json['name'] ?? "",
       profile: json['profile_path'] != null
           ? "https://image.tmdb.org/t/p/w500" + json['profile_path']
@@ -18,15 +18,16 @@ class PeopleModel {
   }
 }
 
-class PeopleModelList {
-  final List<PeopleModel> peoples;
-  PeopleModelList({
+class PerformerModelList {
+  final List<PerformerModel> peoples;
+  PerformerModelList({
     required this.peoples,
   });
-  factory PeopleModelList.fromJson(json) {
-    return PeopleModelList(
-      peoples:
-          (json as List).map((people) => PeopleModel.fromJson(people)).toList(),
+  factory PerformerModelList.fromJson(json) {
+    return PerformerModelList(
+      peoples: (json as List)
+          .map((people) => PerformerModel.fromJson(people))
+          .toList(),
     );
   }
 }

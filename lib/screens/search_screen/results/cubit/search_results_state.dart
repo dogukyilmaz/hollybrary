@@ -8,6 +8,7 @@ enum MovieStatus {
   error,
   allfetched,
 }
+
 enum TvStatus {
   initial,
   loading,
@@ -17,6 +18,7 @@ enum TvStatus {
   allfetched,
   error,
 }
+
 enum PeopleStatus {
   initial,
   loading,
@@ -38,8 +40,8 @@ class SearchResultsState {
   final PeopleStatus peopleStatus;
   final TvStatus tvStatus;
   final List<MovieModel> movies;
-  final List<TvModel> shows;
-  final List<PeopleModel> people;
+  final List<SerieModel> shows;
+  final List<PerformerModel> people;
   SearchResultsState({
     required this.moviePage,
     required this.tvPage,
@@ -83,8 +85,8 @@ class SearchResultsState {
     PeopleStatus? peopleStatus,
     TvStatus? tvStatus,
     List<MovieModel>? movies,
-    List<TvModel>? shows,
-    List<PeopleModel>? people,
+    List<SerieModel>? shows,
+    List<PerformerModel>? people,
   }) {
     return SearchResultsState(
       moviePage: moviePage ?? this.moviePage,

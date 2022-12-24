@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 
-import 'package:hollybrary/api/fetch_search_results.dart';
+import 'package:hollybrary/api/search.dart';
 import 'package:hollybrary/models/movie_model.dart';
 import 'package:hollybrary/models/people_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 
 part 'search_results_state.dart';
 

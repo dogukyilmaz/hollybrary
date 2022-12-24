@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:hollybrary/utils/app_animation.dart';
 import 'package:hollybrary/utils/app_colors.dart';
-import 'package:hollybrary/utils/constants.dart';
 import 'package:hollybrary/models/genre_model.dart';
 import 'genre/cubit/genre_results_cubit.dart';
 import 'genre/genre_results.dart';
@@ -16,7 +15,7 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final genres = GenresList.fromJson(genreslist).list;
+    final genreModel = GenreModelList.fromJson(genreDataList).list;
 
     return Scaffold(
       body: SafeArea(
@@ -111,7 +110,7 @@ class SearchPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: GenreTile(
-                        genre: genres[i],
+                        genre: genreModel[i],
                       ),
                     )
                 ],
@@ -136,11 +135,11 @@ class SearchPage extends StatelessWidget {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, childAspectRatio: 28 / 16),
                 children: [
-                  for (var i = 4; i < genres.length; i++)
+                  for (var i = 4; i < genreModel.length; i++)
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: GenreTile(
-                        genre: genres[i],
+                        genre: genreModel[i],
                       ),
                     )
                 ],
@@ -154,7 +153,7 @@ class SearchPage extends StatelessWidget {
 }
 
 class GenreTile extends StatelessWidget {
-  final Genres genre;
+  final GenreModel genre;
   const GenreTile({
     Key? key,
     required this.genre,

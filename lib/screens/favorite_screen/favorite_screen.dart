@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hollybrary/models/formated_time_genrator.dart';
+import 'package:hollybrary/utils/formated_time_genrator.dart';
 import 'package:hollybrary/widgets/movie_card.dart';
 import 'package:hollybrary/widgets/no_results_found.dart';
 

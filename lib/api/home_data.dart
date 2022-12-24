@@ -4,7 +4,7 @@ import 'package:hollybrary/utils/constants.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 
 class FetchHomeRepo {
   Future<List<dynamic>> getHomePageMovies() async {
@@ -12,8 +12,8 @@ class FetchHomeRepo {
     MovieModelList nowPlayeingData;
     MovieModelList topRatedData;
     MovieModelList upcomingData;
-    TvModelList tvshowData;
-    TvModelList topRatedTvData;
+    SerieModelList tvshowData;
+    SerieModelList topRatedTvData;
 
     final response = await http.get(
       Uri.parse('$BASE_URL/home'),
@@ -28,9 +28,9 @@ class FetchHomeRepo {
       upcomingData =
           MovieModelList.fromJson(json.decode(response.body)['upcoming']);
       tvshowData =
-          TvModelList.fromJson(json.decode(response.body)['trandingtv']);
+          SerieModelList.fromJson(json.decode(response.body)['trandingtv']);
       topRatedTvData =
-          TvModelList.fromJson(json.decode(response.body)['topRatedTv']);
+          SerieModelList.fromJson(json.decode(response.body)['topRatedTv']);
       return [
         trandingData.movies,
         nowPlayeingData.movies,

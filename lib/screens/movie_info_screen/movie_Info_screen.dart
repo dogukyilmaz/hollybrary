@@ -291,12 +291,12 @@ class MovieDetailScreenWidget extends StatelessWidget {
                                             size: 20,
                                           ),
                                           child: StarDisplay(
-                                            value: ((info.rateing * 5) / 10)
+                                            value: ((info.rating * 5) / 10)
                                                 .round(),
                                           ),
                                         ),
                                         Text(
-                                          "   ${info.rateing.toStringAsFixed(1)}/10",
+                                          "   ${info.rating.toStringAsFixed(1)}/10",
                                           style: normalText.copyWith(
                                               color: Colors.purpleAccent,
                                               letterSpacing: 1.2,
@@ -311,7 +311,7 @@ class MovieDetailScreenWidget extends StatelessWidget {
                                     child: FavButton(
                                       id: info.tmdbId,
                                       title: info.title,
-                                      rate: info.rateing,
+                                      rate: info.rating,
                                       poster: info.poster,
                                       type: 'MOVIE',
                                       date: info.releaseDate,

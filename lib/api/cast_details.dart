@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'package:hollybrary/utils/constants.dart';
-import 'package:hollybrary/models/cast_info_model.dart';
+import 'package:hollybrary/models/cast_model.dart';
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 
 class FetchCastInfoById {
   Future<List<dynamic>> getCastDetails(String id) async {
@@ -13,7 +13,7 @@ class FetchCastInfoById {
     SocialMediaInfo socialMedia;
     ImageBackdropList backdrops;
     MovieModelList movies;
-    TvModelList tv;
+    SerieModelList tv;
     var response = await http.get(Uri.parse('$BASE_URL/person/$id'));
 
     if (response.statusCode == 200) {
@@ -23,7 +23,7 @@ class FetchCastInfoById {
       backdrops = ImageBackdropList.fromJson(data['images']['profiles']);
 
       movies = MovieModelList.fromJson(data['movies']['cast']);
-      tv = TvModelList.fromJson(data['tv']['cast']);
+      tv = SerieModelList.fromJson(data['tv']['cast']);
 
       return [
         prinfo,
@@ -33,7 +33,7 @@ class FetchCastInfoById {
         tv.movies,
       ];
     } else {
-      throw FetchDataError('Failure to fetch data');
+      throw ErrorDataModel('Failure to fetch data');
     }
   }
 }

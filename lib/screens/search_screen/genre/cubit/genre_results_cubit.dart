@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 
-import 'package:hollybrary/api/fetch_genre_data.dart';
+import 'package:hollybrary/api/genre_detail.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 
 part 'genre_results_state.dart';
 

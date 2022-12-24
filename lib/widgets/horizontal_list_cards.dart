@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hollybrary/utils/app_animation.dart';
 import 'package:hollybrary/models/movie_model.dart';
-import 'package:hollybrary/models/tv_model.dart';
+import 'package:hollybrary/models/serie_model.dart';
 import 'package:hollybrary/screens/movie_info_screen/movie_Info_screen.dart';
 import 'package:hollybrary/screens/tvshow_info_screen/tvshow_info_screen.dart';
 import 'movie_card.dart';
@@ -51,7 +51,7 @@ class HorizontalListViewMovies extends StatelessWidget {
 }
 
 class HorizontalListViewTv extends StatelessWidget {
-  final List<TvModel> list;
+  final List<SerieModel> list;
   final Color? color;
 
   const HorizontalListViewTv({

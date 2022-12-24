@@ -1,6 +1,6 @@
-import 'formated_time_genrator.dart';
+import '../utils/formated_time_genrator.dart';
 
-class TvModel {
+class SerieModel {
   final String title;
   final String poster;
   final String id;
@@ -8,7 +8,7 @@ class TvModel {
   final double voteAverage;
   final String year;
   final String releaseDate;
-  TvModel({
+  SerieModel({
     required this.title,
     required this.poster,
     required this.id,
@@ -18,7 +18,7 @@ class TvModel {
     required this.releaseDate,
   });
 
-  factory TvModel.fromJson(Map<String, dynamic> json) {
+  factory SerieModel.fromJson(Map<String, dynamic> json) {
     var string = "Not Available";
     getString() {
       try {
@@ -30,13 +30,13 @@ class TvModel {
     }
 
     getString();
-    return TvModel(
+    return SerieModel(
       backdrop: json['backdrop_path'] != null
           ? "https://image.tmdb.org/t/p/w500" + json['backdrop_path']
-          : "https://images.pexels.com/photos/4089658/pexels-photo-4089658.jpeg?cs=srgb&dl=pexels-victoria-borodinova-4089658.jpg&fm=jpg",
+          : "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       poster: json['poster_path'] != null
           ? "https://image.tmdb.org/t/p/w500" + json['poster_path']
-          : "https://images.pexels.com/photos/4089658/pexels-photo-4089658.jpeg?cs=srgb&dl=pexels-victoria-borodinova-4089658.jpg&fm=jpg",
+          : "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       id: json['id'].toString(),
       title: json['name'],
       year: json['first_air_date'].toString(),
@@ -46,18 +46,18 @@ class TvModel {
   }
 }
 
-class TvModelList {
-  final List<TvModel> movies;
-  TvModelList({
+class SerieModelList {
+  final List<SerieModel> movies;
+  SerieModelList({
     required this.movies,
   });
-  factory TvModelList.fromJson(List<dynamic> json) {
-    return TvModelList(
-        movies: (json).map((list) => TvModel.fromJson(list)).toList());
+  factory SerieModelList.fromJson(List<dynamic> json) {
+    return SerieModelList(
+        movies: (json).map((list) => SerieModel.fromJson(list)).toList());
   }
 }
 
-class TvInfoModel {
+class SerieDetailModel {
   final String tmdbId;
   final String overview;
   final String title;
@@ -65,9 +65,9 @@ class TvInfoModel {
   final String backdrops;
   final String poster;
   final String tagline;
-  final double rateing;
+  final double rating;
   final String homepage;
-  final List genres;
+  final List GenreModel;
   final List<Seasons> seasons;
   final List created;
   final List networks;
@@ -75,7 +75,7 @@ class TvInfoModel {
   final String date;
   final String formatedDate;
   final String episoderuntime;
-  TvInfoModel({
+  SerieDetailModel({
     required this.tmdbId,
     required this.overview,
     required this.title,
@@ -83,9 +83,9 @@ class TvInfoModel {
     required this.backdrops,
     required this.poster,
     required this.tagline,
-    required this.rateing,
+    required this.rating,
     required this.homepage,
-    required this.genres,
+    required this.GenreModel,
     required this.seasons,
     required this.created,
     required this.networks,
@@ -94,14 +94,14 @@ class TvInfoModel {
     required this.formatedDate,
     required this.episoderuntime,
   });
-  factory TvInfoModel.fromJson(json) {
+  factory SerieDetailModel.fromJson(json) {
     var string = "Not Available";
     try {
       string =
           "${monthgenrater(json['first_air_date'].split("-")[1])} ${json['first_air_date'].split("-")[2]}, ${json['first_air_date'].split("-")[0]}";
       // ignore: empty_catches
     } catch (e) {}
-    return TvInfoModel(
+    return SerieDetailModel(
       title: json['name'] ?? '',
       homepage: json['homepage'] ?? "",
       languages: (json['spoken_languages'] as List)
@@ -109,17 +109,18 @@ class TvInfoModel {
           .toList(),
       created:
           (json['created_by'] as List).map((laung) => laung['name']).toList(),
-      genres: (json['genres'] as List).map((laung) => laung['name']).toList(),
+      GenreModel:
+          (json['GenreModel'] as List).map((laung) => laung['name']).toList(),
       networks:
           (json['networks'] as List).map((laung) => laung['name']).toList(),
       overview: json['overview'] ?? '',
       backdrops: json['backdrop_path'] != null
           ? "https://image.tmdb.org/t/p/w500" + json['backdrop_path']
-          : "https://images.pexels.com/photos/4089658/pexels-photo-4089658.jpeg?cs=srgb&dl=pexels-victoria-borodinova-4089658.jpg&fm=jpg",
+          : "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       poster: json['poster_path'] != null
           ? "https://image.tmdb.org/t/p/w500" + json['poster_path']
-          : "https://images.pexels.com/photos/4089658/pexels-photo-4089658.jpeg?cs=srgb&dl=pexels-victoria-borodinova-4089658.jpg&fm=jpg",
-      rateing: json['vote_average'].toDouble() ?? 0.0,
+          : "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: json['vote_average'].toDouble() ?? 0.0,
       tagline: json['tagline'] ?? '',
       tmdbId: json['id'].toString(),
       numberOfSeasons: json['number_of_seasons'].toString(),
@@ -172,7 +173,7 @@ class Seasons {
       id: json['id'].toString(),
       image: json['poster_path'] != null
           ? "https://image.tmdb.org/t/p/w500" + (json['poster_path'] ?? "")
-          : "https://images.pexels.com/photos/4089658/pexels-photo-4089658.jpeg?cs=srgb&dl=pexels-victoria-borodinova-4089658.jpg&fm=jpg",
+          : "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       name: json['name'] ?? '',
       overview: json['overview'] == "" ? "N/A" : json['overview'] ?? "",
       customOverView: string,

@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-import 'formated_time_genrator.dart';
+import '../utils/formated_time_genrator.dart';
 
 class CastPersonalInfo {
   final String image;
@@ -48,7 +48,7 @@ class CastPersonalInfo {
       id: json['id'].toString(),
       image: json['profile_path'] != null
           ? "https://image.tmdb.org/t/p/original" + json['profile_path']
-          : "https://images.pexels.com/photos/4089658/pexels-photo-4089658.jpeg?cs=srgb&dl=pexels-victoria-borodinova-4089658.jpg&fm=jpg",
+          : "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       imdbId: json['imdb_id'] ?? "",
       name: json['name'] ?? '',
       placeOfBirth: json['place_of_birth'] ?? '',
