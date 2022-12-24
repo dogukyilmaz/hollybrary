@@ -57,21 +57,22 @@ class EmptyFavorites extends StatelessWidget {
           children: [
             Icon(
               Icons.favorite,
-              size: 45,
+              size: 40,
               color: Colors.white.withOpacity(.6),
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             Text(
-              "Your Favorites is Empty",
+              "Empty!",
               style: heading.copyWith(color: Colors.white.withOpacity(.9)),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             Text(
-              "Add Your Favorite movies and tv shows to track your favorites list.",
+              "Add your favorite movies and series to this list",
               textAlign: TextAlign.center,
               style: normalText.copyWith(color: Colors.white.withOpacity(.9)),
             ),

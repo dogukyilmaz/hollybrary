@@ -16,11 +16,11 @@ class FavoriteScreen extends StatelessWidget {
           CupertinoSliverNavigationBar(
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             largeTitle: Text(
-              'Favorites',
+              'Favorite List',
               style: TextStyle(
-                color: Theme.of(context).primaryColor,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
             ),
             border: Border(
               bottom: BorderSide(

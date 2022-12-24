@@ -256,14 +256,14 @@ class MovieDetailScreenWidget extends StatelessWidget {
                                           TextSpan(
                                             text: info.title,
                                             style:
-                                                heading.copyWith(fontSize: 22),
+                                                heading.copyWith(fontSize: 20),
                                           ),
                                           TextSpan(
                                             text:
                                                 " (${info.releaseDate.split("-")[0]})",
                                             style: heading.copyWith(
                                               color:
-                                                  Colors.white.withOpacity(.8),
+                                                  Colors.white.withOpacity(.3),
                                               fontSize: 18,
                                             ),
                                           ),
@@ -271,16 +271,16 @@ class MovieDetailScreenWidget extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(height: 5),
+                                  const SizedBox(height: 10),
                                   DelayedDisplay(
                                     delay: const Duration(microseconds: 700),
                                     child: Text(
                                       imdbInfo.genre,
                                       style: normalText.copyWith(
-                                          color: Colors.white),
+                                          color: AppColors.primaryTextColor),
                                     ),
                                   ),
-                                  const SizedBox(height: 5),
+                                  const SizedBox(height: 10),
                                   DelayedDisplay(
                                     delay: const Duration(microseconds: 700),
                                     child: Row(
@@ -296,18 +296,16 @@ class MovieDetailScreenWidget extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          "  " +
-                                              info.rateing.toString() +
-                                              "/10",
+                                          "   ${info.rateing.toStringAsFixed(1)}/10",
                                           style: normalText.copyWith(
-                                            color: Colors.amber,
-                                            letterSpacing: 1.2,
-                                          ),
+                                              color: Colors.purpleAccent,
+                                              letterSpacing: 1.2,
+                                              fontSize: 18.0),
                                         )
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(height: 5),
+                                  const SizedBox(height: 10),
                                   DelayedDisplay(
                                     delay: const Duration(microseconds: 800),
                                     child: FavButton(

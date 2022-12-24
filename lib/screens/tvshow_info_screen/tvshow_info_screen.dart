@@ -310,9 +310,7 @@ class TvInfoScrollableWidget extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            "  " +
-                                                info.rateing.toString() +
-                                                "/10",
+                                            "  ${info.rateing.toString()} /10",
                                             style: normalText.copyWith(
                                               color:
                                                   Colors.white == Colors.white

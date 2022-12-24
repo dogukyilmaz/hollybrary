@@ -207,7 +207,7 @@ class HorizontalMovieCard extends StatelessWidget {
                         Text(
                           "  " + rate.toString() + "/10",
                           style: normalText.copyWith(
-                            color: Colors.amber,
+                            color: Colors.purple,
                             letterSpacing: 1.2,
                           ),
                         )
