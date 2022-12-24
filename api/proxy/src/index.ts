@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import morgan from 'morgan';
 import { errorHandler } from './middleware/errorHandler';
 import fetch from 'node-fetch';
 (globalThis as any).fetch = fetch;
@@ -21,6 +22,7 @@ const port = process.env.PORT || 4500;
 
 app.use(express.json());
 app.use(cors());
+app.use(morgan('dev'));
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Welcome to the Hollybrary API');

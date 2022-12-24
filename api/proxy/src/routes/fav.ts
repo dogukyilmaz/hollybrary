@@ -2,6 +2,13 @@ import axios from 'axios';
 import express from 'express';
 import PocketBase from 'pocketbase';
 
+axios.interceptors.request.use((config) => {
+  config.headers = config.headers ?? {};
+  config.headers['Access-Control-Allow-Origin'] = '*';
+  config.headers['Accept-Encoding'] = 'gzip,deflate,compress';
+  return config;
+});
+
 const router = express.Router();
 
 const pb = new PocketBase('http://0.0.0.0:8090');

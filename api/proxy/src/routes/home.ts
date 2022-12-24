@@ -2,6 +2,13 @@ import express from 'express';
 import axios from 'axios';
 import { cloneHomeRecords } from '../controller/pocketbase';
 
+axios.interceptors.request.use((config) => {
+  config.headers = config.headers ?? {};
+  config.headers['Access-Control-Allow-Origin'] = '*';
+  config.headers['Accept-Encoding'] = 'gzip,deflate,compress';
+  return config;
+});
+
 const router = express.Router();
 
 router.get('/', (req, res, next) => {

@@ -1,6 +1,13 @@
 import axios from 'axios';
 import express from 'express';
 
+axios.interceptors.request.use((config) => {
+  config.headers = config.headers ?? {};
+  config.headers['Access-Control-Allow-Origin'] = '*';
+  config.headers['Accept-Encoding'] = 'gzip,deflate,compress';
+  return config;
+});
+
 const router = express.Router();
 
 router.get('/:id/season/:snum', (req, res, next) => {
