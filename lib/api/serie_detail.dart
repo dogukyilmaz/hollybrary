@@ -15,7 +15,7 @@ class GetSerieDetail {
     ImageBackdropList backdropList;
     var images = [];
     CastInfoList castInfoList;
-    SerieModelList similarshows;
+    SerieModelList similarSeries;
     var box = Hive.box('Series');
     dynamic tv;
     var res = await http.get(Uri.parse('$BASE_URL/tv/$id'));
@@ -34,13 +34,13 @@ class GetSerieDetail {
     images.addAll(tv['images']['logos']);
     backdropList = ImageBackdropList.fromJson(images);
     castInfoList = CastInfoList.fromJson(tv['credits']);
-    similarshows = SerieModelList.fromJson(tv['similar']['results']);
+    similarSeries = SerieModelList.fromJson(tv['similar']['results']);
     return [
       info,
       trailerList.trailers,
       backdropList.backdrops,
       castInfoList.castList,
-      similarshows.movies,
+      similarSeries.movies,
     ];
   }
 }
