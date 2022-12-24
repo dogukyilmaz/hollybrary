@@ -1,6 +1,15 @@
 version: '3.7'
 
 services:
+  proxy:
+    build:
+      context: ./api/proxy
+    #   command: npm start
+    ports:
+      - '4500:4500'
+    environment:
+      NODE_ENV: dev
+
   pocketbase:
     image: augustodelg/pocketbase:latest
     restart: unless-stopped
@@ -10,11 +19,3 @@ services:
       - pocketbase-data:/pb_data
 volumes:
   pocketbase-data:
-  # proxy:
-  #   build:
-  #     context: ./api/proxy
-  #   # command: npm start
-  #   ports:
-  #     - '4500:4500'
-  #   environment:
-  #     NODE_ENV: dev
