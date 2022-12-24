@@ -6,10 +6,10 @@ const tmdbHttp = axios.create({
   // timeout: 15000,
 });
 
-// tmdbHttp.interceptors.request.use((config) => {
-//   console.log(config.baseURL, 'config.baseURL');
-//   return config;
-// });
+tmdbHttp.interceptors.request.use((config) => {
+  console.log(config.baseURL, 'config.baseURL');
+  return config;
+});
 
 // tmdbHttp.interceptors.response.use((response) => {
 //   return response;
