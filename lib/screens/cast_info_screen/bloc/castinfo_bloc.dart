@@ -11,7 +11,7 @@ part 'castinfo_event.dart';
 part 'castinfo_state.dart';
 
 class CastinfoBloc extends Bloc<CastinfoEvent, CastinfoState> {
-  final FetchCastInfoById repo = FetchCastInfoById();
+  final GetCastById repo = GetCastById();
 
   CastinfoBloc() : super(CastinfoInitial()) {
     on<CastinfoEvent>((event, emit) async {

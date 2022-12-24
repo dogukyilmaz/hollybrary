@@ -199,10 +199,8 @@ class _SearchResultsState extends State<SearchResults> {
                                 padding: const EdgeInsets.all(16.0),
                                 child: InkWell(
                                   onTap: () {
-                                    pushNewScreen(
-                                        context,
-                                        CastInFoScreen(
-                                            id: movie.id, backdrop: ''));
+                                    pushNewScreen(context,
+                                        CastScreen(id: movie.id, backdrop: ''));
                                   },
                                   child: Column(
                                     children: [

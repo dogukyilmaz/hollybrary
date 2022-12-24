@@ -8,7 +8,7 @@ part 'genre_results_state.dart';
 
 class GenreResultsCubit extends Cubit<GenreResultsState> {
   GenreResultsCubit() : super(GenreResultsState.initial());
-  final repo = GenreResultsRepo();
+  final repo = GenreDataRepo();
   void init(String query) async {
     try {
       emit(state.copyWith(movieStatus: MovieStatus.loading, query: query));
@@ -45,7 +45,7 @@ class GenreResultsCubit extends Cubit<GenreResultsState> {
   void loadNextTvPage() async {
     if (!state.tvFull) {
       emit(state.copyWith(tvStatus: TvStatus.adding));
-      final shows = await repo.gettvShows(state.query, state.tvPage);
+      final shows = await repo.getSeries(state.query, state.tvPage);
       state.shows.addAll(shows[0]);
       emit(
         state.copyWith(
@@ -62,7 +62,7 @@ class GenreResultsCubit extends Cubit<GenreResultsState> {
   void initTv(String query) async {
     try {
       emit(state.copyWith(tvStatus: TvStatus.loading));
-      final shows = await repo.gettvShows(query, state.tvPage);
+      final shows = await repo.getSeries(query, state.tvPage);
       emit(
         state.copyWith(
           tvStatus: TvStatus.loaded,

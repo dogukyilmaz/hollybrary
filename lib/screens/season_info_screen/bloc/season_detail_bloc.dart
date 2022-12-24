@@ -10,7 +10,7 @@ part 'season_detail_event.dart';
 part 'season_detail_state.dart';
 
 class SeasonDetailBloc extends Bloc<SeasonDetailEvent, SeasonDetailState> {
-  final repo = FetchSeasonInfo();
+  final repo = GetSeasonDetail();
 
   SeasonDetailBloc() : super(SeasonDetailInitial()) {
     on<SeasonDetailEvent>((event, emit) async {

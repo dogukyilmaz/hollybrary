@@ -18,10 +18,10 @@ import 'package:hollybrary/widgets/image_view.dart';
 import 'package:hollybrary/widgets/no_results_found.dart';
 import 'package:hollybrary/screens/movie_info_screen/movie_Info_screen.dart';
 
-class CastInFoScreen extends StatefulWidget {
+class CastScreen extends StatefulWidget {
   final String id;
   final String backdrop;
-  const CastInFoScreen({
+  const CastScreen({
     Key? key,
     required this.id,
     required this.backdrop,
@@ -31,7 +31,7 @@ class CastInFoScreen extends StatefulWidget {
   _CastInFoScreenState createState() => _CastInFoScreenState();
 }
 
-class _CastInFoScreenState extends State<CastInFoScreen> {
+class _CastInFoScreenState extends State<CastScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

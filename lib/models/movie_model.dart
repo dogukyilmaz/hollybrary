@@ -67,7 +67,7 @@ class MovieInfoModel {
   final int runtime;
   final String homepage;
   final String imdbId;
-  final List GenreModel;
+  final List genres;
   final String releaseDate;
   MovieInfoModel({
     required this.tmdbId,
@@ -83,7 +83,7 @@ class MovieInfoModel {
     required this.runtime,
     required this.homepage,
     required this.imdbId,
-    required this.GenreModel,
+    required this.genres,
     required this.releaseDate,
   });
   factory MovieInfoModel.fromJson(json) {
@@ -105,8 +105,7 @@ class MovieInfoModel {
       languages: (json['spoken_languages'] as List)
           .map((laung) => laung['english_name'])
           .toList(),
-      GenreModel:
-          (json['GenreModel'] as List).map((laung) => laung['name']).toList(),
+      genres: (json['genres'] as List).map((laung) => laung['name']).toList(),
       overview: json['overview'] ?? json['actors'] ?? '',
       backdrops: json['backdrop_path'] != null
           ? "https://image.tmdb.org/t/p/original" + json['backdrop_path']

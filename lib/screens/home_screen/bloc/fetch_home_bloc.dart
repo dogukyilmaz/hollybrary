@@ -10,7 +10,7 @@ part 'fetch_home_event.dart';
 part 'fetch_home_state.dart';
 
 class FetchHomeBloc extends Bloc<FetchHomeEvent, FetchHomeState> {
-  final FetchHomeRepo repo = FetchHomeRepo();
+  final HomeDataRepo repo = HomeDataRepo();
 
   FetchHomeBloc() : super(FetchHomeInitial()) {
     on<FetchHomeEvent>((event, emit) async {

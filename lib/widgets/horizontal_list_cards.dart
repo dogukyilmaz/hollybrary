@@ -82,7 +82,7 @@ class HorizontalListViewTv extends StatelessWidget {
                 onTap: () {
                   pushNewScreen(
                     context,
-                    TvShowDetailScreen(
+                    SerieDetailScreen(
                       backdrop: list[i].backdrop,
                       id: list[i].id,
                     ),

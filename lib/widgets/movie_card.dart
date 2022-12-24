@@ -132,7 +132,7 @@ class HorizontalMovieCard extends StatelessWidget {
           } else {
             pushNewScreen(
               context,
-              TvShowDetailScreen(
+              SerieDetailScreen(
                 backdrop: backdrop,
                 id: id,
               ),

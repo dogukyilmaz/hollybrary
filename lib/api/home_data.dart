@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:hollybrary/models/movie_model.dart';
 import 'package:hollybrary/models/serie_model.dart';
 
-class FetchHomeRepo {
+class HomeDataRepo {
   Future<List<dynamic>> getHomePageMovies() async {
     MovieModelList trandingData;
     MovieModelList nowPlayeingData;

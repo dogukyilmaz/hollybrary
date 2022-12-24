@@ -10,7 +10,7 @@ part 'search_results_state.dart';
 class SearchResultsCubit extends Cubit<SearchResultsState> {
   SearchResultsCubit() : super(SearchResultsState.initial());
 
-  final repo = SearchResultsRepo();
+  final repo = SearchDataRepo();
 
   void init(String query) async {
     try {
@@ -48,7 +48,7 @@ class SearchResultsCubit extends Cubit<SearchResultsState> {
   void loadNextTvPage() async {
     if (!state.tvFull) {
       emit(state.copyWith(tvStatus: TvStatus.adding));
-      final shows = await repo.gettvShows(state.query, state.tvPage);
+      final shows = await repo.getSeries(state.query, state.tvPage);
       state.shows.addAll(shows[0]);
       emit(
         state.copyWith(
@@ -65,7 +65,7 @@ class SearchResultsCubit extends Cubit<SearchResultsState> {
   void loadNextPersonPage() async {
     if (!state.moviesFull) {
       emit(state.copyWith(peopleStatus: PeopleStatus.adding));
-      final people = await repo.getPersons(state.query, state.peoplePage);
+      final people = await repo.getCast(state.query, state.peoplePage);
       state.people.addAll(people[0]);
       emit(state.copyWith(
         people: state.people,
@@ -80,7 +80,7 @@ class SearchResultsCubit extends Cubit<SearchResultsState> {
   void initTv(String query) async {
     try {
       emit(state.copyWith(tvStatus: TvStatus.loading));
-      final shows = await repo.gettvShows(query, state.tvPage);
+      final shows = await repo.getSeries(query, state.tvPage);
       emit(
         state.copyWith(
           tvStatus: TvStatus.loaded,
@@ -97,7 +97,7 @@ class SearchResultsCubit extends Cubit<SearchResultsState> {
   void initPeople(String query) async {
     try {
       emit(state.copyWith(peopleStatus: PeopleStatus.loading));
-      final people = await repo.getPersons(query, state.peoplePage);
+      final people = await repo.getCast(query, state.peoplePage);
       emit(
         state.copyWith(
           peopleStatus: PeopleStatus.loaded,

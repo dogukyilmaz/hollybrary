@@ -7,7 +7,7 @@ import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
 import 'package:hollybrary/models/serie_model.dart';
 
-class FetchCastInfoById {
+class GetCastById {
   Future<List<dynamic>> getCastDetails(String id) async {
     CastModel prinfo;
     SocialMediaInfo socialMedia;

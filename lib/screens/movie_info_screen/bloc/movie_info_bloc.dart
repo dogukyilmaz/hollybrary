@@ -9,7 +9,7 @@ part 'movie_info_event.dart';
 part 'movie_info_state.dart';
 
 class MovieInfoBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
-  final repo = FetchMovieDataById();
+  final repo = GetMovieById();
 
   MovieInfoBloc() : super(MovieInfoInitial()) {
     on<MovieInfoEvent>((event, emit) async {

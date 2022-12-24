@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
 
-class FetchMovieDataById {
+class GetMovieById {
   Future<List<dynamic>> getDetails(String id) async {
     MovieInfoModel movieData;
     MovieInfoImdb omdbData;

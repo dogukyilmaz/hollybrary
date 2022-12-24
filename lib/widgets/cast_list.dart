@@ -37,7 +37,7 @@ class CastList extends StatelessWidget {
                       context,
                       BlocProvider(
                         create: (context) => CastinfoBloc(),
-                        child: CastInFoScreen(
+                        child: CastScreen(
                           id: castList[i].id,
                           backdrop: castList[i].image,
                         ),

@@ -25,10 +25,10 @@ import 'package:hollybrary/screens/season_info_screen/bloc/season_detail_bloc.da
 import 'package:hollybrary/screens/season_info_screen/season_details_screen.dart';
 import 'bloc/tv_show_detail_bloc.dart';
 
-class TvShowDetailScreen extends StatefulWidget {
+class SerieDetailScreen extends StatefulWidget {
   final String id;
   final String backdrop;
-  const TvShowDetailScreen({
+  const SerieDetailScreen({
     Key? key,
     required this.id,
     required this.backdrop,
@@ -38,7 +38,7 @@ class TvShowDetailScreen extends StatefulWidget {
   _TvShowDetailScreenState createState() => _TvShowDetailScreenState();
 }
 
-class _TvShowDetailScreenState extends State<TvShowDetailScreen> {
+class _TvShowDetailScreenState extends State<SerieDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

@@ -7,7 +7,7 @@ import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
 import 'package:hollybrary/models/serie_model.dart';
 
-class GenreResultsRepo {
+class GenreDataRepo {
   Future<List<dynamic>> getmovies(String query, int page) async {
     var res = await http.get(
         Uri.parse(BASE_URL + '/genre/movie?id=$query&page=${page.toString()}'));
@@ -23,7 +23,7 @@ class GenreResultsRepo {
     }
   }
 
-  Future<List<dynamic>> gettvShows(String query, int page) async {
+  Future<List<dynamic>> getSeries(String query, int page) async {
     var res = await http.get(
         Uri.parse(BASE_URL + '/genre/tv?id=$query&page=${page.toString()}'));
     if (res.statusCode == 200) {

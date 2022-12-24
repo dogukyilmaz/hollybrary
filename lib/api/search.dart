@@ -1,17 +1,17 @@
 import 'dart:convert';
 
-import 'package:hollybrary/utils/constants.dart';
 import 'package:http/http.dart' as http;
 
+import 'package:hollybrary/utils/constants.dart';
 import 'package:hollybrary/models/error_model.dart';
 import 'package:hollybrary/models/movie_model.dart';
 import 'package:hollybrary/models/people_model.dart';
 import 'package:hollybrary/models/serie_model.dart';
 
-class SearchResultsRepo {
+class SearchDataRepo {
   Future<List<dynamic>> getmovies(String query, int page) async {
     var res = await http.get(Uri.parse(
-        BASE_URL + '/search/movie?text=$query&page=${page.toString()}'));
+        '$BASE_URL/search/movie?text=$query&page=${page.toString()}'));
     if (res.statusCode == 200) {
       return [
         (jsonDecode(res.body)['data'] as List)
@@ -24,7 +24,7 @@ class SearchResultsRepo {
     }
   }
 
-  Future<List<dynamic>> gettvShows(String query, int page) async {
+  Future<List<dynamic>> getSeries(String query, int page) async {
     var res = await http.get(
         Uri.parse('$BASE_URL/search/tv?text=$query&page=${page.toString()}'));
     if (res.statusCode == 200) {
@@ -39,9 +39,9 @@ class SearchResultsRepo {
     }
   }
 
-  Future<List<dynamic>> getPersons(String query, int page) async {
+  Future<List<dynamic>> getCast(String query, int page) async {
     var res = await http.get(Uri.parse(
-        BASE_URL + '/search/person?text=$query&page=${page.toString()}'));
+        '$BASE_URL/search/person?text=$query&page=${page.toString()}'));
     if (res.statusCode == 200) {
       return [
         (jsonDecode(res.body)['data'] as List)

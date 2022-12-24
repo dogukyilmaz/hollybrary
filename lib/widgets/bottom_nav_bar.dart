@@ -30,9 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     try {
       final initialLink = await getInitialLink();
       if (initialLink != null) {
-        var link = initialLink
-            .replaceFirst("https://anshrathod.vercel.app/moviedb?id=", "")
-            .trim();
+        var link = initialLink;
         var id = link.split("-")[0];
         var type = link.split("-")[1];
         if (type == "movie") {
@@ -46,12 +44,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
         } else if (type == "tv") {
           pushNewScreen(
             context,
-            TvShowDetailScreen(id: id, backdrop: ''),
+            SerieDetailScreen(id: id, backdrop: ''),
           );
         } else if (type == 'cast') {
           pushNewScreen(
             context,
-            CastInFoScreen(
+            CastScreen(
               id: id,
               backdrop: '',
             ),
